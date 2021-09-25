@@ -13,12 +13,12 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - MONGO_INITDB_ROOT_USERNAME=test
-      - MONGO_INITDB_ROOT_PASSWORD=test
-      - MONGO_INITDB_DATABASE=poor_registry
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=admin
     #ports:
     #  - "27017:27017"
     volumes:
-      - ../docker-prod/volumes/mongo:/data/db
-      - ../docker-prod/volumes/init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ../docker/volumes/mongo:/data/db
+      - ../docker/volumes/init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     restart: unless-stopped
