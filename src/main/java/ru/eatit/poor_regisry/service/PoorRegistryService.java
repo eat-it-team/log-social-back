@@ -24,7 +24,6 @@ public class PoorRegistryService {
         this.mongoTemplate = mongoTemplate;
     }
 
-    @PostConstruct
     public void init() {
 
         //Демонстрация работы
