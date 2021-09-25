@@ -6,6 +6,8 @@ import org.json.simple.JSONObject;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import ru.eatit.poor_regisry.controller.dto.SubsidyDto;
+import ru.eatit.poor_regisry.controller.dto.SubsidyUserDto;
+import ru.eatit.poor_regisry.controller.dto.UserSubsidyDto;
 import ru.eatit.poor_regisry.repository.mongo.entity.Subsidy;
 import ru.eatit.poor_regisry.repository.mongo.entity.User;
 
@@ -54,5 +56,15 @@ public class PoorRegistryService {
     public boolean registerSubsidy(String userId, String subsidyId) {
         User user = mongoTemplate.findById(userId, User.class);
         return subsidyContainer.registerSubsidy(user, subsidyId);
+    }
+
+    public List<UserSubsidyDto> getUserSubsidyMap() {
+        List<User> users = mongoTemplate.findAll(User.class);
+        return subsidyContainer.getUserSubsidyMap(users);
+    }
+
+    public List<SubsidyUserDto> getSubsidyUserMap() {
+        List<User> users = mongoTemplate.findAll(User.class);
+        return subsidyContainer.getSubsidyUserMap(users);
     }
 }
