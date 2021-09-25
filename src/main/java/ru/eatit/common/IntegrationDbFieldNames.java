@@ -52,7 +52,8 @@ public enum IntegrationDbFieldNames {
     признакНаличияРебенкаИнвалида("признакНаличияРебенкаИнвалида", "", LogicalType.BOOLEAN),
     признакУклоненияОтАлиментовВторогоРодителя("признакУклоненияОтАлиментовВторогоРодителя", "", LogicalType.BOOLEAN),
     признакОпекунства("признакОпекунства", "", LogicalType.BOOLEAN),
-    признакПопечительства("признакПопечительства", "", LogicalType.BOOLEAN);
+    признакПопечительства("признакПопечительства", "", LogicalType.BOOLEAN),
+    признакНаличияИнвалидностиIIгруппы("признакНаличияИнвалидностиIIгруппы", "", LogicalType.BOOLEAN);
 
     private String name;
     private String description;

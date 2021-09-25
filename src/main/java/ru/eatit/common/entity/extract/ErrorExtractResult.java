@@ -14,5 +14,5 @@ public class ErrorExtractResult {
     private String fieldName;
     private LogicalType expectedType;
     private String errorMessage;
-    private String value;
+    private Object value;
 }
