@@ -6,10 +6,10 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - new_mongodb
-  new_mongodb:
+      - mongodb
+  mongodb:
     image: mongo:4
-    container_name: new_mongodb
+    container_name: mongodb
     environment:
       - PUID=1000
       - PGID=1000
