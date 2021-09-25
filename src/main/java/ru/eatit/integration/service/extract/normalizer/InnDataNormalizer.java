@@ -6,7 +6,7 @@ import ru.eatit.common.entity.extract.NormalizeResult;
 import ru.eatit.common.other.InnChecker;
 
 @Service
-public class InnDataNormalizer implements DataNormalizer {
+public class InnDataNormalizer implements DataNormalizer<String>{
 
     @Override
     public NormalizeResult normalize(String rawValue) {

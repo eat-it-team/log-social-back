@@ -5,13 +5,12 @@ import ru.eatit.common.api.DataNormalizer;
 import ru.eatit.common.entity.extract.NormalizeResult;
 
 @Service
-public class SnilsDataNormalizer implements DataNormalizer<String> {
+public class DateDataNormalizer implements DataNormalizer<String> {
 
     @Override
     public NormalizeResult normalize(String rawValue) {
-        //TODO: более сложная проверка должна быть
         if (rawValue == null || rawValue.trim() == "") {
-            return new NormalizeResult(false, rawValue, "СНИЛС не должен быть null или пустым");
+            return new NormalizeResult(false, rawValue, "Строка не должна быть null или пустой");
         }
 
         return new NormalizeResult(true, rawValue.trim(), null);

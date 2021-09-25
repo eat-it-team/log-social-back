@@ -14,6 +14,9 @@ public class DataNormalizerFactoryImpl implements DataNormalizeFactory {
     private final FioDataNormalizer fioDataNormalizer;
     private final StringDataNormalizer stringDataNormalizer;
     private final SnilsDataNormalizer snilsDataNormalizer;
+    private final BooleanDataNormalizer booleanDataNormalizer;
+    private final DateDataNormalizer dateNormalizer;
+    private final PassportDataNormalizer passportDataNormalizer;
     @Override
     public DataNormalizer getDataNormalizer(LogicalType logicalType) {
         switch (logicalType) {
@@ -25,6 +28,12 @@ public class DataNormalizerFactoryImpl implements DataNormalizeFactory {
                 return fioDataNormalizer;
             case SNILS:
                 return snilsDataNormalizer;
+            case BOOLEAN:
+                return booleanDataNormalizer;
+            case DATE:
+                return dateNormalizer;
+            case PASSPORT:
+                return passportDataNormalizer;
 
             default:
                 throw new UnsupportedOperationException(logicalType.getName() + "еще не реализован!");

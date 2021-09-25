@@ -22,7 +22,7 @@ public class GetAllDataResponse {
     private String address;
     private String mobilePhone;
     private String email;
-    private Passport passport;
+    private String passport;
     private String snils;
     private String inn;
     private String gender;

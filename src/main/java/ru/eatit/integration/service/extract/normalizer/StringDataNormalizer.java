@@ -5,7 +5,7 @@ import ru.eatit.common.api.DataNormalizer;
 import ru.eatit.common.entity.extract.NormalizeResult;
 
 @Service
-public class StringDataNormalizer implements DataNormalizer {
+public class StringDataNormalizer implements DataNormalizer<String> {
 
     @Override
     public NormalizeResult normalize(String rawValue) {

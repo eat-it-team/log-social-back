@@ -17,7 +17,7 @@ public class GetAllDataServiceMockResponseProvider {
     private static final Map<String, GetAllDataResponse> RESPONSE_MAP = new HashMap<>();
 
     static {
-
+        //TODO заполнить несколько пользователей с разными соц. профилями
     }
 
     public GetAllDataResponse getResponse(GetAllDataRequest request) {
