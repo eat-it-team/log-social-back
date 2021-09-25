@@ -1,3 +1,4 @@
+/*
 package ru.eatit.integration.service.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -16,3 +17,4 @@ public class UpdateFieldKafkaListener {
         System.out.println(record.offset());
     }
 }
+*/

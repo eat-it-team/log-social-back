@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import ru.eatit.poor_regisry.repository.mongo.entity.User;
 
+import java.util.List;
+
 /**
  * Сервис для работы с сущностью клиента.
  * Будет содержать методы для поиска клиентов/обновления его полей
@@ -26,8 +28,14 @@ public class PoorRegistryService {
             for (Object s : newData.keySet()) {
                 byId.getDetails().put(s, newData.get(s));
             }
+        } else {
+            mongoTemplate.save(new User(id, newData));
         }
         return mongoTemplate.save(byId);
+    }
+
+    public List<User> getAll() {
+        return mongoTemplate.findAll(User.class);
     }
 
 }
