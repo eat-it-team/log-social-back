@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   java-server:
-    image: ghcr.io/eat-it-team/back-first/back-first
+    image: ghcr.io/eat-it-team/log-social-back/log-social-back
     ports:
       - 8080:8080
     depends_on:
