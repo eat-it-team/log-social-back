@@ -4,8 +4,11 @@ package ru.eatit.common;
  * Класс для представления, данных из внешнего источника.
  * Каждое поле из таблицы бд мы сопостовляем с конкретным типом,
  * и в зависимости от типа проводим те или иные процедуры валидации или нормализации данных
+ *
+ * В дальнейшем при разрастании - перенос в бд.
  */
 public enum LogicalType {
+    LOGIN("esia_login"),
     INN("inn"),
     FIO("fio"),
     DATETIME("datetime"),
@@ -18,7 +21,10 @@ public enum LogicalType {
     AGE("age"),
     PHONE("phone"),
     ADDRESS("address"),
-    EMAIL("email");
+    EMAIL("email"),
+    GEO("geo"),
+    GENDER("gender"),
+    BOOLEAN("boolean");
 
 
     private String name;

@@ -11,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExtractResult {
+    private String id;
     private JSONObject detailsMap;
     private List<ErrorExtractResult> errors;
 }

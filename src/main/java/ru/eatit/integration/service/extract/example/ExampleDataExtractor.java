@@ -51,7 +51,7 @@ public class ExampleDataExtractor implements CustomOutsideServiceExtractor<Strin
             errors.add(new ErrorExtractResult(serviceName, "id", idLogicalType, normalizeIdResult.getErrorMessage(), rawData.getId()));
         }
 
-        return new ExtractResult(jsonObject, errors);
+        return new ExtractResult("id", jsonObject, errors);
     }
 
     //Внутри обновляются jsonObject и errors
