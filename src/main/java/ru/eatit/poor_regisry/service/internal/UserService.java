@@ -21,7 +21,7 @@ public class UserService {
 
     public UserDto registerUser(String id) {
         if (Objects.isNull(id) || id.isEmpty()) {
-            return registerUserFromSmev(id);
+            return registerUserFromSmev("1");
         }
         User user = mongoTemplate.findById(id, User.class);
         if (user != null) {
