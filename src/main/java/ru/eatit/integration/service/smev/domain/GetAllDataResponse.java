@@ -9,11 +9,12 @@ import lombok.NoArgsConstructor;
  * Данные, якобы полученные от СМЭВ (в рамках хакатона отдаем все данные которые нам нужны для профиля бедности)
  */
 @Data
-@Builder
+@Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 public class GetAllDataResponse {
     //Информация о пользователе
+    private String id;
     private String firstName;
     private String lastName;
     private String middleName;
