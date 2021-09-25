@@ -1,6 +1,5 @@
 package ru.eatit.integration.service.smev.service;
 
-import lombok.var;
 import org.springframework.stereotype.Service;
 import ru.eatit.integration.service.smev.domain.GetAllDataRequest;
 import ru.eatit.integration.service.smev.domain.GetAllDataResponse;
@@ -30,6 +29,9 @@ public class GetAllDataServiceMockResponseProvider {
                         .признакМалоимущести(true)
                         .признакПенсионера(true)
                         .признакНаличияСтатусаБезработного(true)
+                        .gender("woman")
+                        .признакЖенатостиЗамужнести(false)
+                        .признакНаличияНесовершеннолетнегоРебенка(true)
                         .build()
         );
         RESPONSE_MAP.put(
@@ -43,6 +45,9 @@ public class GetAllDataServiceMockResponseProvider {
                         .признакМалоимущести(true)
                         .признакПенсионера(false)
                         .признакНаличияСтатусаБезработного(true)
+                        .gender("man")
+                        .признакЖенатостиЗамужнести(true)
+                        .признакНаличияНесовершеннолетнегоРебенка(true)
                         .build()
         );
         RESPONSE_MAP.put(
@@ -56,6 +61,9 @@ public class GetAllDataServiceMockResponseProvider {
                         .признакМалоимущести(true)
                         .признакПенсионера(false)
                         .признакНаличияСтатусаБезработного(false)
+                        .gender("woman")
+                        .признакЖенатостиЗамужнести(true)
+                        .признакНаличияНесовершеннолетнегоРебенка(true)
                         .build()
         );
         RESPONSE_MAP.put(
@@ -69,6 +77,9 @@ public class GetAllDataServiceMockResponseProvider {
                         .признакМалоимущести(true)
                         .признакПенсионера(false)
                         .признакНаличияСтатусаБезработного(false)
+                        .gender("man")
+                        .признакЖенатостиЗамужнести(false)
+                        .признакНаличияНесовершеннолетнегоРебенка(false)
                         .build()
         );
         RESPONSE_MAP.put(
@@ -82,19 +93,22 @@ public class GetAllDataServiceMockResponseProvider {
                         .признакМалоимущести(true)
                         .признакПенсионера(false)
                         .признакНаличияСтатусаБезработного(true)
+                        .gender("woman")
+                        .признакЖенатостиЗамужнести(true)
+                        .признакНаличияНесовершеннолетнегоРебенка(true)
                         .build()
         );
     }
 
     public GetAllDataResponse getResponse(GetAllDataRequest request) {
-        return RESPONSE_MAP.getOrDefault(request.getEsiaUserId(), generateNewUser(request.getEsiaUserId()));
+        GetAllDataResponse response = RESPONSE_MAP.get(request.getEsiaUserId());
+        if (response == null) {
+            return generateNewUser(request.getEsiaUserId());
+        }
+        return response;
     }
 
     private GetAllDataResponse generateNewUser(String esiaUserId) {
-        GetAllDataResponse response1 = RESPONSE_MAP.get(esiaUserId);
-        if (response1 != null) {
-            return response1;
-        }
         GetAllDataResponse response = GetAllDataResponse.builder()
                 .id(esiaUserId)
                 .snils(esiaUserId)
