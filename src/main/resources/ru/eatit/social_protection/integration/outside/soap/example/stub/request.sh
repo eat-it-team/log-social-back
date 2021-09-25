@@ -1,1 +1,0 @@
-curl --header "content-type: text/xml" -d @citizen.request.xml http://localhost:8080/ws

@@ -54,7 +54,7 @@ import java.util.List;
  * На выходе будет струкура JSONObject details с успешными полями
  * и структура <db.fieldName => <Значение + ошибка валидации>
  */
-public interface CustomOutsideServiceExtractor<T> {
+public interface CustomOutsideServiceExtractor<R, T> {
     /**
      * Внутри проходится по rawData, пытается нормализовать и провалидировать данные
      * Формирует две структуры одну с успешными данными, вторую с ошибками
@@ -63,6 +63,14 @@ public interface CustomOutsideServiceExtractor<T> {
      * @param rawData     данные полученные с внешнего сервис
      * @return результат попытки нормализации данных
      */
-    ExtractResult extract(String serviceName, List<T> rawData);
+    /**
+     *  Внутри проходится по request/response, пытается нормализовать и провалидировать данные
+     *  Формирует две структуры одну с успешными данными, вторую с ошибками
+     * @param serviceName название внешнего сервис
+     * @param request  запрос к внешнему сервису
+     * @param response  ответ от внешнего сервиса
+     * @return результат нормализации
+     */
+    ExtractResult extract(String serviceName, R request, T response);
 
 }

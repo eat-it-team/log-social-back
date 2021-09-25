@@ -6,12 +6,11 @@ import lombok.NoArgsConstructor;
 import org.json.simple.JSONObject;
 
 import java.util.List;
-import java.util.Map;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExtractResult {
-    private Map<String, JSONObject> detailsMap;
+    private JSONObject detailsMap;
     private List<ErrorExtractResult> errors;
 }

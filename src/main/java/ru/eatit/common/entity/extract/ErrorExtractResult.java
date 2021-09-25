@@ -15,6 +15,4 @@ public class ErrorExtractResult {
     private LogicalType expectedType;
     private String errorMessage;
     private String value;
-    private Integer arrayIdx;
-
 }
