@@ -7,4 +7,5 @@ public interface Urls {
 
     String USER_URL = BASE_URL + "/user";
     String SMEV_URL = VERSION + "/smev";
+    String POOR_REGISTRY_URL = BASE_URL + "/subsidy";
 }
