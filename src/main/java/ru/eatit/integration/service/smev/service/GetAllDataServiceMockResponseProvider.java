@@ -19,7 +19,7 @@ public class GetAllDataServiceMockResponseProvider {
     static {
         RESPONSE_MAP.put(
                 "1", GetAllDataResponse.builder()
-                        .address("ул. Максима Горького, 45")
+                        .address("426007, Удмуртская Республика, г. Ижевск, ул.Пушкинская, д.214")
                         .id("1")
                         .firstName("Галина")
                         .middleName("Федоровна")

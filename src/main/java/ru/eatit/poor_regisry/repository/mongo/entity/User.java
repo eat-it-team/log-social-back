@@ -1,6 +1,8 @@
 package ru.eatit.poor_regisry.repository.mongo.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.json.simple.JSONObject;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,6 +12,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * В качестве id скорее всего будет СНИЛС
  */
 @Document
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
