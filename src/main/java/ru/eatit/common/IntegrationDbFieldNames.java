@@ -30,7 +30,7 @@ public enum IntegrationDbFieldNames {
     MOBILE_PHONE("mobilePhone", "Мобильный телефон", LogicalType.STRING),
     GENDER("gender", "Пол в Формате Male/Female", LogicalType.STRING),
 
-    UPDATE_DATE("modified_at", "Дата пследнего обновления данных", LogicalType.DATETIME),
+    UPDATE_DATE("modified_at", "Дата пследнего обновления данных", LogicalType.STRING),
 
     //TODO: переименовать потом
     признакБеременности("признакБеременности", "", LogicalType.BOOLEAN),

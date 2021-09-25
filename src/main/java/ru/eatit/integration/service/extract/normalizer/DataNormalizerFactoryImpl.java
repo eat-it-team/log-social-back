@@ -17,6 +17,7 @@ public class DataNormalizerFactoryImpl implements DataNormalizeFactory {
     private final BooleanDataNormalizer booleanDataNormalizer;
     private final DateDataNormalizer dateNormalizer;
     private final PassportDataNormalizer passportDataNormalizer;
+    private final GeoDataNormalizer geoDataNormalizer;
     @Override
     public DataNormalizer getDataNormalizer(LogicalType logicalType) {
         switch (logicalType) {
@@ -34,6 +35,8 @@ public class DataNormalizerFactoryImpl implements DataNormalizeFactory {
                 return dateNormalizer;
             case PASSPORT:
                 return passportDataNormalizer;
+            case GEO:
+                return geoDataNormalizer;
 
             default:
                 throw new UnsupportedOperationException(logicalType.getName() + "еще не реализован!");

@@ -98,7 +98,7 @@ public class GetAllDataExtractor implements CustomOutsideServiceExtractor<GetAll
         extractField(serviceName, "snils", response.getSnils(), jsonObject, errors);
         extractField(serviceName, "inn", response.getInn(), jsonObject, errors);
         extractField(serviceName, "gender", response.getGender(), jsonObject, errors);
-        extractField(serviceName, "updateDate", new Date(response.getUpdateDate()).toString(), jsonObject, errors);
+        extractField(serviceName, "updateDate", response.getUpdateDate() == null ? null : new Date(response.getUpdateDate()).toString(), jsonObject, errors);
         extractField(serviceName, "признакБеременности", response.getПризнакБеременности(), jsonObject, errors);
         extractField(serviceName, "признакМалоимущести", response.getПризнакМалоимущести(), jsonObject, errors);
         extractField(serviceName, "признакПенсионера", response.getПризнакПенсионера(), jsonObject, errors);
