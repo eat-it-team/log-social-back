@@ -69,7 +69,7 @@ jobs:
           key: ${{ secrets.HACKATHON_SSH }}
           script: |
             cd log-social-back/docker-prod
-            docker-compose pull mongodb
+            docker-compose pull new_mongodb
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin 
             docker-compose pull java-server
             docker-compose up -d
