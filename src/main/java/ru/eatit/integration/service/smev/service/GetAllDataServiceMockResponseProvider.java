@@ -14,11 +14,18 @@ import java.util.Map;
 @Service
 public class GetAllDataServiceMockResponseProvider {
 
-    private static final Map<String, GetAllDataResponse> RESPONSE_MAP = new HashMap<>();
-
-    static {
-        //TODO заполнить несколько пользователей с разными соц. профилями
-    }
+    private static final Map<String, GetAllDataResponse> RESPONSE_MAP = Map.of(
+            "1", GetAllDataResponse.builder()
+                    .address("ул. Максима Горького, 45")
+                    .id("1")
+                    .firstName("Галина")
+                    .middleName("Федоровна")
+                    .lastName("Константинопольская")
+                    .признакМалоимущести(true)
+                    .признакПенсионера(true)
+                    .признакНаличияСтатусаБезработного(false)
+                    .build()
+    );
 
     public GetAllDataResponse getResponse(GetAllDataRequest request) {
         return null;

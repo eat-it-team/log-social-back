@@ -23,9 +23,9 @@ public class UserMapper {
                 .build();
     }
 
-    public UserDto toDto(GetAllDataResponse data, String id) {
+    public UserDto toDto(GetAllDataResponse data) {
         return UserDto.builder()
-                .id(id)
+                .id(data.getId())
                 .worker(!data.getПризнакНаличияСтатусаБезработного())
                 .snills(data.getSnils())
                 .poverty(data.getПризнакМалоимущести())

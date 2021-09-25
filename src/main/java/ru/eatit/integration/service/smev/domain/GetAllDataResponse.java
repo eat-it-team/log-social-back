@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GetAllDataResponse {
     //Информация о пользователе
+    private String id;
     private String firstName;
     private String lastName;
     private String middleName;

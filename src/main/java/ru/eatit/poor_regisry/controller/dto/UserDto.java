@@ -15,6 +15,7 @@ public class UserDto {
     private String firstName;
     private String secondName;
     private String lastName;
+    private String address;
 
     private boolean poverty;
     private boolean pensioner;
