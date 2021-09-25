@@ -17,6 +17,8 @@ public class UserDto {
     private String lastName;
     private String address;
     private String gender;
+    private double lat;
+    private double lon;
 
     private boolean poverty;
     private boolean pensioner;

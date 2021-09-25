@@ -32,20 +32,20 @@ public class GetAllDataExtractor implements CustomOutsideServiceExtractor<GetAll
     static {
         FIELD_NAMES_MAP.put("firstName", IntegrationDbFieldNames.FIRST_NAME);
         FIELD_NAMES_MAP.put("lastName", IntegrationDbFieldNames.LAST_NAME);
-        FIELD_NAMES_MAP.put("middleName", IntegrationDbFieldNames.MIDDLE_NAME);
+        FIELD_NAMES_MAP.put("secondName", IntegrationDbFieldNames.MIDDLE_NAME);
         FIELD_NAMES_MAP.put("birthDate", IntegrationDbFieldNames.USER_BIRTH_DATE);
         FIELD_NAMES_MAP.put("address", IntegrationDbFieldNames.ADDRESS);
         FIELD_NAMES_MAP.put("birthPlace", IntegrationDbFieldNames.BIRTH_PLACE);
         FIELD_NAMES_MAP.put("mobilePhone", IntegrationDbFieldNames.MOBILE_PHONE);
         FIELD_NAMES_MAP.put("email", IntegrationDbFieldNames.EMAIL);
         FIELD_NAMES_MAP.put("passport", IntegrationDbFieldNames.PASSPORT);
-        FIELD_NAMES_MAP.put("snils", IntegrationDbFieldNames.USER_SNILS);
+        FIELD_NAMES_MAP.put("snills", IntegrationDbFieldNames.USER_SNILS);
         FIELD_NAMES_MAP.put("inn", IntegrationDbFieldNames.USER_INN);
         FIELD_NAMES_MAP.put("gender", IntegrationDbFieldNames.GENDER);
         FIELD_NAMES_MAP.put("updateDate", IntegrationDbFieldNames.UPDATE_DATE);
         FIELD_NAMES_MAP.put("признакБеременности", IntegrationDbFieldNames.признакБеременности);
-        FIELD_NAMES_MAP.put("признакМалоимущести", IntegrationDbFieldNames.признакМалоимущести);
-        FIELD_NAMES_MAP.put("признакПенсионера", IntegrationDbFieldNames.признакПенсионера);
+        FIELD_NAMES_MAP.put("poverty", IntegrationDbFieldNames.признакМалоимущести);
+        FIELD_NAMES_MAP.put("pensioner", IntegrationDbFieldNames.признакПенсионера);
 
         FIELD_NAMES_MAP.put("признакНаличияИнвалидности", IntegrationDbFieldNames.признакНаличияИнвалидности);
         FIELD_NAMES_MAP.put("признакНаличияИнвалидностиIгруппы", IntegrationDbFieldNames.признакНаличияИнвалидностиIгруппы);
@@ -55,7 +55,7 @@ public class GetAllDataExtractor implements CustomOutsideServiceExtractor<GetAll
 
         FIELD_NAMES_MAP.put("признакТрудоспособности", IntegrationDbFieldNames.признакТрудоспособности);
         FIELD_NAMES_MAP.put("признакНахожденияВДекретномОтпуске", IntegrationDbFieldNames.признакНахожденияВДекретномОтпуске);
-        FIELD_NAMES_MAP.put("признакНаличияСтатусаБезработного", IntegrationDbFieldNames.признакНаличияСтатусаБезработного);
+        FIELD_NAMES_MAP.put("worker", IntegrationDbFieldNames.признакНаличияСтатусаБезработного);
 
         FIELD_NAMES_MAP.put("признакПожилогоВозраста", IntegrationDbFieldNames.признакПожилогоВозраста);
         FIELD_NAMES_MAP.put("признакОдинокийРодитель", IntegrationDbFieldNames.признакОдинокийРодитель);
@@ -85,7 +85,7 @@ public class GetAllDataExtractor implements CustomOutsideServiceExtractor<GetAll
         JSONObject jsonObject = new JSONObject();
         extractField(serviceName, "firstName", response.getFirstName(), jsonObject, errors);
         extractField(serviceName, "lastName", response.getLastName(), jsonObject, errors);
-        extractField(serviceName, "middleName", response.getMiddleName(), jsonObject, errors);
+        extractField(serviceName, "secondName", response.getMiddleName(), jsonObject, errors);
         extractField(serviceName, "lastName", response.getLastName(), jsonObject, errors);
         extractField(serviceName, "birthDate", response.getBirthDate(), jsonObject, errors);
         extractField(serviceName, "address", response.getAddress(), jsonObject, errors);
@@ -93,22 +93,21 @@ public class GetAllDataExtractor implements CustomOutsideServiceExtractor<GetAll
         extractField(serviceName, "mobilePhone", response.getMobilePhone(), jsonObject, errors);
         extractField(serviceName, "email", response.getEmail(), jsonObject, errors);
         extractField(serviceName, "passport", response.getPassport(), jsonObject, errors);
-        extractField(serviceName, "snils", response.getSnils(), jsonObject, errors);
+        extractField(serviceName, "snills", response.getSnils(), jsonObject, errors);
         extractField(serviceName, "inn", response.getInn(), jsonObject, errors);
-        extractField(serviceName, "snils", response.getSnils(), jsonObject, errors);
         extractField(serviceName, "inn", response.getInn(), jsonObject, errors);
         extractField(serviceName, "gender", response.getGender(), jsonObject, errors);
         extractField(serviceName, "updateDate", response.getUpdateDate() == null ? null : new Date(response.getUpdateDate()).toString(), jsonObject, errors);
         extractField(serviceName, "признакБеременности", response.getПризнакБеременности(), jsonObject, errors);
-        extractField(serviceName, "признакМалоимущести", response.getПризнакМалоимущести(), jsonObject, errors);
-        extractField(serviceName, "признакПенсионера", response.getПризнакПенсионера(), jsonObject, errors);
+        extractField(serviceName, "poverty", response.getПризнакМалоимущести(), jsonObject, errors);
+        extractField(serviceName, "pensioner", response.getПризнакПенсионера(), jsonObject, errors);
         extractField(serviceName, "признакНаличияИнвалидности", response.getПризнакНаличияИнвалидности(), jsonObject, errors);
         extractField(serviceName, "признакНаличияИнвалидностиIгруппы", response.getПризнакНаличияИнвалидностиIгруппы(), jsonObject, errors);
         extractField(serviceName, "признакНаличияИнвалидностиIIгруппы", response.getПризнакНаличияИнвалидностиIIгруппы(), jsonObject, errors);
         extractField(serviceName, "признакНаличияИнвалидностиIIIгруппы", response.getПризнакНаличияИнвалидностиIIIгруппы(), jsonObject, errors);
         extractField(serviceName, "признакТрудоспособности", response.getПризнакТрудоспособности(), jsonObject, errors);
         extractField(serviceName, "признакНахожденияВДекретномОтпуске", response.getПризнакНахожденияВДекретномОтпуске(), jsonObject, errors);
-        extractField(serviceName, "признакНаличияСтатусаБезработного", response.getПризнакНаличияСтатусаБезработного(), jsonObject, errors);
+        extractField(serviceName, "worker", !response.getПризнакНаличияСтатусаБезработного(), jsonObject, errors);
 
 
         extractField(serviceName, "признакПожилогоВозраста", response.getПризнакЖертваРепрессий(), jsonObject, errors);

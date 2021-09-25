@@ -1,8 +1,8 @@
 package ru.eatit.poor_regisry.service.mapper;
 
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.springframework.stereotype.Component;
-import ru.eatit.integration.service.smev.domain.GetAllDataResponse;
 import ru.eatit.poor_regisry.controller.dto.SubsidyDto;
 import ru.eatit.poor_regisry.controller.dto.UserDto;
 import ru.eatit.poor_regisry.repository.mongo.entity.User;
@@ -17,31 +17,23 @@ public class UserMapper {
                 .firstName((String) details.get("firstName"))
                 .secondName((String) details.get("secondName"))
                 .lastName((String) details.get("lastName"))
-                .pensioner((Boolean) details.get("pensioner"))
-                .poverty((Boolean) details.get("poverty"))
+                .pensioner(Boolean.parseBoolean((String) details.get("pensioner")))
+                .poverty(Boolean.parseBoolean((String) details.get("poverty")))
                 .snills((String) details.get("snills"))
-                .worker((Boolean) details.get("worker"))
+                .worker(Boolean.parseBoolean((String) details.get("worker")))
                 .address((String) details.get("address"))
+                .gender((String) details.get("gender"))
+                .lat(getLat(details))
+                .lon(getLon(details))
                 .subsidyDto(subsidyDto)
                 .build();
     }
 
-    public User toEntity(GetAllDataResponse userData) {
-        User user = new User();
-        user.setId(userData.getId());
-        JSONObject details = new JSONObject();
-        details.put("firstName", userData.getFirstName());
-        details.put("secondName", userData.getMiddleName());
-        details.put("lastName", userData.getLastName());
-        details.put("pensioner", userData.getПризнакПенсионера());
-        details.put("poverty", userData.getПризнакМалоимущести());
-        details.put("snills", userData.getSnils());
-        details.put("worker", userData.getПризнакНаличияСтатусаБезработного());
-        details.put("address", userData.getAddress());
-        details.put("gender", userData.getGender());
-        details.put("have_child", userData.getПризнакНаличияНесовершеннолетнегоРебенка());
-        details.put("married", userData.getПризнакЖенатостиЗамужнести());
-        user.setDetails(details);
-        return user;
+    private double getLat(JSONObject details) {
+        return (Double) ((JSONObject) JSONValue.parse((String) details.get("geoAddress"))).get("geoLat");
+    }
+
+    private double getLon(JSONObject details) {
+        return (Double) ((JSONObject) JSONValue.parse((String) details.get("geoAddress"))).get("geoLon");
     }
 }

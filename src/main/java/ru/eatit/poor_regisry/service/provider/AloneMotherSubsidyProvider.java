@@ -30,7 +30,7 @@ public class AloneMotherSubsidyProvider implements SubsidyProvider {
     public boolean isApplied(User user) {
         JSONObject details = user.getDetails();
         return Objects.equals(details.get("gender"), "woman") &&
-                Objects.equals(details.get("have_child"), true) &&
+                Objects.equals(details.get("haveChild"), true) &&
                 Objects.equals(details.get("married"), false);
     }
 }
