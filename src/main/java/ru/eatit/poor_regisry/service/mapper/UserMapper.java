@@ -25,7 +25,7 @@ public class UserMapper {
     }
 
     public User toEntity(GetAllDataResponse userData) {
-        var user = new User();
+        User user = new User();
         user.setId(userData.getId());
         JSONObject details = new JSONObject();
         details.put("firstName", userData.getFirstName());

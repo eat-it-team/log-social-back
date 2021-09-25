@@ -1,21 +1,29 @@
 version: '2'
 
 services:
-  zookeeper:
-    image: wurstmeister/zookeeper:latest
-    ports:
-      - "2181:2181"
+  #  zookeeper:
+  #    image: wurstmeister/zookeeper:latest
+  #    ports:
+  #      - "2181:2181"
+  #
+  #  kafka:
+  #    image: wurstmeister/kafka:0.10.2.1
+  #    ports:
+  #      - "9092:9092"
+  #    environment:
+  #      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+  #      KAFKA_CREATE_TOPICS: "update:1:1"
+  #      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  #    volumes:
+  #      - /var/run/docker.sock:/var/run/docker.sock
 
-  kafka:
-    image: wurstmeister/kafka:0.10.2.1
+  hack_java_server:
+    container_name: hack_java_server
+    build: ./..
     ports:
-      - "9092:9092"
-    environment:
-      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
-      KAFKA_CREATE_TOPICS: "update:1:1"
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - 8080:8080
+    depends_on:
+      - mongodb
 
   mongodb:
     image: mongo
@@ -32,3 +40,5 @@ services:
       - ../docker/volumes/mongo:/data/db
       - ../docker/volumes/init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     restart: unless-stopped
+
+

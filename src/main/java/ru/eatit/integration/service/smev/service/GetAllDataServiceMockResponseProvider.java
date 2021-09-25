@@ -1,11 +1,13 @@
 package ru.eatit.integration.service.smev.service;
 
+import lombok.var;
 import org.springframework.stereotype.Service;
 import ru.eatit.integration.service.smev.domain.GetAllDataRequest;
 import ru.eatit.integration.service.smev.domain.GetAllDataResponse;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Здесь мы заводим MAP<request, моковые ответ), для отдачи пользователя с нужным
@@ -89,7 +91,7 @@ public class GetAllDataServiceMockResponseProvider {
     }
 
     private GetAllDataResponse generateNewUser(String esiaUserId) {
-        var candidate = RESPONSE_MAP.entrySet().stream().findFirst();
+        Optional<Map.Entry<String, GetAllDataResponse>> candidate = RESPONSE_MAP.entrySet().stream().findFirst();
         if (candidate.isPresent()) {
             var response = candidate.get().getValue().toBuilder()
                     .id(esiaUserId)
