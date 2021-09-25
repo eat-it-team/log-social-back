@@ -30,7 +30,7 @@ public class UserService {
     }
 
     private UserDto registerUserFromSmev(String id) {
-        return userMapper.toDto(userDataClient.getData(new GetAllDataRequest(id)), id);
+        return userMapper.toDto(userDataClient.getData(new GetAllDataRequest(id)));
     }
 
 

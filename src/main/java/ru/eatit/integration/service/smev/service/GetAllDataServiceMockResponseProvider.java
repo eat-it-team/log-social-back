@@ -28,6 +28,23 @@ public class GetAllDataServiceMockResponseProvider {
     );
 
     public GetAllDataResponse getResponse(GetAllDataRequest request) {
-        return null;
+        return RESPONSE_MAP.getOrDefault(request.getEsiaUserId(), generateNewUser(request.getEsiaUserId()));
+    }
+
+    private GetAllDataResponse generateNewUser(String esiaUserId) {
+        var candidate = RESPONSE_MAP.entrySet().stream().findFirst();
+        if (candidate.isPresent()) {
+            var response = candidate.get().getValue().toBuilder()
+                    .id(esiaUserId)
+                    .build();
+            RESPONSE_MAP.put(esiaUserId, response);
+            return response;
+        }
+        var response = GetAllDataResponse.builder()
+                .id(esiaUserId)
+                .snils(esiaUserId)
+                .build();
+        RESPONSE_MAP.put(esiaUserId, response);
+        return response;
     }
 }
