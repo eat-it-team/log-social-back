@@ -91,15 +91,11 @@ public class GetAllDataServiceMockResponseProvider {
     }
 
     private GetAllDataResponse generateNewUser(String esiaUserId) {
-        Optional<Map.Entry<String, GetAllDataResponse>> candidate = RESPONSE_MAP.entrySet().stream().findFirst();
-        if (candidate.isPresent()) {
-            var response = candidate.get().getValue().toBuilder()
-                    .id(esiaUserId)
-                    .build();
-            RESPONSE_MAP.put(esiaUserId, response);
-            return response;
+        GetAllDataResponse response1 = RESPONSE_MAP.get(esiaUserId);
+        if (response1 != null) {
+            return response1;
         }
-        var response = GetAllDataResponse.builder()
+        GetAllDataResponse response = GetAllDataResponse.builder()
                 .id(esiaUserId)
                 .snils(esiaUserId)
                 .build();

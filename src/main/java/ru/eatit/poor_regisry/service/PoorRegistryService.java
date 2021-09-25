@@ -28,10 +28,10 @@ public class PoorRegistryService {
             for (Object s : newData.keySet()) {
                 byId.getDetails().put(s, newData.get(s));
             }
+            return mongoTemplate.save(byId);
         } else {
-            mongoTemplate.save(new User(id, newData));
+            return mongoTemplate.save(new User(id, newData));
         }
-        return mongoTemplate.save(byId);
     }
 
     public List<User> getAll() {

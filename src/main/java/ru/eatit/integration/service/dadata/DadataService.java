@@ -27,10 +27,15 @@ public class DadataService {
     }
 
     public Geo getCoordinates(String address) {
-        Address cleanAddress = daDataClient.cleanAddress(address);
-        if (cleanAddress == null || QcGeo.UNDEFINED.equals(cleanAddress.getQcGeo())) {
+        try {
+            Address cleanAddress = daDataClient.cleanAddress(address);
+            if (cleanAddress == null || QcGeo.UNDEFINED.equals(cleanAddress.getQcGeo())) {
+                return null;
+            }
+            return new Geo(cleanAddress.getGeoLat(), cleanAddress.getGeoLon());
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
-        return new Geo(cleanAddress.getGeoLat(), cleanAddress.getGeoLon());
     }
 }
