@@ -1,0 +1,60 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="https://github.com/eat-it-team" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="https://github.com/eat-it-team" targetNamespace="https://github.com/eat-it-team">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://github.com/eat-it-team">
+            <xs:element name="getCitizenRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="snils" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getCitizenResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="citizen" type="tns:citizen"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:complexType name="citizen">
+                <xs:sequence>
+                    <xs:element name="first_name" type="xs:string"/>
+                    <xs:element name="second_name" type="xs:string"/>
+                    <xs:element name="last_name" type="xs:string"/>
+                    <xs:element name="snils" type="xs:string"/>
+                    <xs:element name="inn" type="xs:string"/>
+                    <xs:element name="birthdate" type="xs:date"/>
+                    <xs:element name="sex" type="xs:boolean"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getCitizenRequest">
+        <wsdl:part element="tns:getCitizenRequest" name="getCitizenRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getCitizenResponse">
+        <wsdl:part element="tns:getCitizenResponse" name="getCitizenResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="CitizenPort">
+        <wsdl:operation name="getCitizen">
+            <wsdl:input message="tns:getCitizenRequest" name="getCitizenRequest"></wsdl:input>
+            <wsdl:output message="tns:getCitizenResponse" name="getCitizenResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CitizenPortSoap11" type="tns:CitizenPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getCitizen">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="getCitizenRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getCitizenResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CitizenPortService">
+        <wsdl:port binding="tns:CitizenPortSoap11" name="CitizenPortSoap11">
+            <soap:address location="http://localhost:8080/ws"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

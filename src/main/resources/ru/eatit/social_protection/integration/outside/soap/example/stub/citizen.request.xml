@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:tns="https://github.com/eat-it-team">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <tns:getCitizenRequest>
+            <tns:snils>111-111-111</tns:snils>
+        </tns:getCitizenRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

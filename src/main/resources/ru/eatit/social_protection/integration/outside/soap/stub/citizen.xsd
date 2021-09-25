@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="https://github.com/eat-it-team"
+           targetNamespace="https://github.com/eat-it-team" elementFormDefault="qualified">
+
+    <xs:element name="getCitizenRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="snils" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCitizenResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="citizen" type="tns:citizen"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="citizen">
+        <xs:sequence>
+            <xs:element name="first_name" type="xs:string"/>
+            <xs:element name="second_name" type="xs:string"/>
+            <xs:element name="last_name" type="xs:string"/>
+            <xs:element name="snils" type="xs:string"/>
+            <xs:element name="inn" type="xs:string"/>
+            <xs:element name="birthdate" type="xs:date"/>
+            <xs:element name="sex" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
