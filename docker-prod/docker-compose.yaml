@@ -19,6 +19,6 @@ services:
     #ports:
     #  - "27017:27017"
     volumes:
-      - ../docker-prod/volumes/mongo:/data/db
-      - ../docker-prod/volumes/init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ../docker/volumes/mongo:/data/db
+      - ../docker/volumes/init/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     restart: unless-stopped
