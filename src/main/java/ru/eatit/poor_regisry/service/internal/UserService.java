@@ -30,7 +30,8 @@ public class UserService {
     }
 
     private UserDto registerUserFromSmev(String id) {
-        return userMapper.toDto(userDataClient.getData(new GetAllDataRequest(id)));
+        var userData = userDataClient.getData(new GetAllDataRequest(id));
+        return userMapper.toDto(mongoTemplate.save(userMapper.toEntity(userData)));
     }
 
 

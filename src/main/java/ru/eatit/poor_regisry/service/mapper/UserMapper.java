@@ -16,23 +16,27 @@ public class UserMapper {
                 .firstName((String) details.get("firstName"))
                 .secondName((String) details.get("secondName"))
                 .lastName((String) details.get("lastName"))
-                .pensioner(Boolean.parseBoolean((String) details.get("pensioner")))
-                .poverty(Boolean.parseBoolean((String) details.get("poverty")))
+                .pensioner((Boolean) details.get("pensioner"))
+                .poverty((Boolean) details.get("poverty"))
                 .snills((String) details.get("snills"))
-                .worker(Boolean.parseBoolean((String) details.get("worker")))
+                .worker((Boolean) details.get("worker"))
+                .address((String) details.get("address"))
                 .build();
     }
 
-    public UserDto toDto(GetAllDataResponse data) {
-        return UserDto.builder()
-                .id(data.getId())
-                .worker(!data.getПризнакНаличияСтатусаБезработного())
-                .snills(data.getSnils())
-                .poverty(data.getПризнакМалоимущести())
-                .pensioner(data.getПризнакПенсионера())
-                .lastName(data.getLastName())
-                .secondName(data.getMiddleName())
-                .firstName(data.getFirstName())
-                .build();
+    public User toEntity(GetAllDataResponse userData) {
+        var user = new User();
+        user.setId(userData.getId());
+        JSONObject details = new JSONObject();
+        details.put("firstName", userData.getFirstName());
+        details.put("secondName", userData.getMiddleName());
+        details.put("lastName", userData.getLastName());
+        details.put("pensioner", userData.getПризнакПенсионера());
+        details.put("poverty", userData.getПризнакМалоимущести());
+        details.put("snills", userData.getSnils());
+        details.put("worker", userData.getПризнакНаличияСтатусаБезработного());
+        details.put("address", userData.getAddress());
+        user.setDetails(details);
+        return user;
     }
 }
