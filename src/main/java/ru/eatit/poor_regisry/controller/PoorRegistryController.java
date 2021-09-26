@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.eatit.poor_regisry.controller.api.Urls;
 import ru.eatit.poor_regisry.controller.dto.SubsidyDto;
 import ru.eatit.poor_regisry.controller.dto.SubsidyRequest;
+import ru.eatit.poor_regisry.controller.dto.SubsidyUserDto;
+import ru.eatit.poor_regisry.controller.dto.UserSubsidyDto;
 import ru.eatit.poor_regisry.service.PoorRegistryService;
 
 @RestController
@@ -37,6 +39,16 @@ public class PoorRegistryController {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("/user-subsidy-map")
+    public List<UserSubsidyDto> getUserSubsidyMap() {
+        return poorRegistryService.getUserSubsidyMap();
+    }
+
+    @GetMapping("/subsidy-user-map")
+    public List<SubsidyUserDto> getSubsidyUserMap() {
+        return poorRegistryService.getSubsidyUserMap();
     }
 
 }
