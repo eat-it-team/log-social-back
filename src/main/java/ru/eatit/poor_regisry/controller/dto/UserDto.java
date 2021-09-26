@@ -18,9 +18,9 @@ public class UserDto {
     private String address;
     private String gender;
 
-    private boolean poverty;
-    private boolean pensioner;
-    private boolean worker;
+    private Boolean poverty;
+    private Boolean pensioner;
+    private Boolean worker;
     private Boolean married;
     private Boolean haveChild;
     private SubsidyDto subsidyDto;
