@@ -25,16 +25,19 @@ public class PoorRegistryController {
     private final PoorRegistryService poorRegistryService;
 
     @GetMapping("/all")
+    @CrossOrigin
     public List<SubsidyDto> getAll() {
         return poorRegistryService.getAllSubsidies();
     }
 
     @GetMapping
+    @CrossOrigin
     public List<SubsidyDto> get(@RequestParam("userId") String userId) {
         return poorRegistryService.getForUser(userId);
     }
 
     @PostMapping
+    @CrossOrigin
     public ResponseEntity getSubsidy(@RequestBody SubsidyRequest request) {
         if (poorRegistryService.registerSubsidy(request.getUserId(), request.getSubsidyId())) {
             return ResponseEntity.ok().build();
@@ -49,6 +52,7 @@ public class PoorRegistryController {
     }
 
     @GetMapping("/subsidy-user-map")
+    @CrossOrigin
     public List<SubsidyUserDto> getSubsidyUserMap() {
         return poorRegistryService.getSubsidyUserMap();
     }
