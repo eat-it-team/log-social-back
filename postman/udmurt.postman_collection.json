@@ -1,0 +1,374 @@
+{
+	"info": {
+		"_postman_id": "5943bdbf-e06a-4b76-8ceb-e4582735fb22",
+		"name": "udmurt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "stand",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://hackathon.rodial.pro:8080/api/registry/v1/user/register",
+							"protocol": "http",
+							"host": [
+								"hackathon",
+								"rodial",
+								"pro"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registry",
+								"v1",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "extract",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://hackathon.rodial.pro:8080/smev/poor_registry/extract",
+							"protocol": "http",
+							"host": [
+								"hackathon",
+								"rodial",
+								"pro"
+							],
+							"port": "8080",
+							"path": [
+								"smev",
+								"poor_registry",
+								"extract"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subsidy?userId=2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://hackathon.rodial.pro:8080/api/registry/v1/subsidy?userId=2",
+							"protocol": "http",
+							"host": [
+								"hackathon",
+								"rodial",
+								"pro"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registry",
+								"v1",
+								"subsidy"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subsidy/all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://hackathon.rodial.pro:8080/api/registry/v1/subsidy/all",
+							"protocol": "http",
+							"host": [
+								"hackathon",
+								"rodial",
+								"pro"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registry",
+								"v1",
+								"subsidy",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subsidy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"2\",\r\n    \"subsidyId\": \"poverty_citizen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://hackathon.rodial.pro:8080/api/registry/v1/subsidy",
+							"protocol": "http",
+							"host": [
+								"hackathon",
+								"rodial",
+								"pro"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"registry",
+								"v1",
+								"subsidy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "helthcheck",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://hackathon.rodial.pro:8080/healthcheck",
+							"protocol": "http",
+							"host": [
+								"hackathon",
+								"rodial",
+								"pro"
+							],
+							"port": "8080",
+							"path": [
+								"healthcheck"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "poor_registry/all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://hackathon.rodial.pro:8080/smev/poor_registry/all",
+							"protocol": "http",
+							"host": [
+								"hackathon",
+								"rodial",
+								"pro"
+							],
+							"port": "8080",
+							"path": [
+								"smev",
+								"poor_registry",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "extract",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/smev/poor_registry/extract",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smev",
+						"poor_registry",
+						"extract"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/registry/v1/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"registry",
+						"v1",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "poor_registry/all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/smev/poor_registry/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"smev",
+						"poor_registry",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
