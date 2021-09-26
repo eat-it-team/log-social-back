@@ -3,6 +3,7 @@ package ru.eatit.poor_regisry.controller;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,6 +43,7 @@ public class PoorRegistryController {
     }
 
     @GetMapping("/user-subsidy-map")
+    @CrossOrigin
     public List<UserSubsidyDto> getUserSubsidyMap() {
         return poorRegistryService.getUserSubsidyMap();
     }
